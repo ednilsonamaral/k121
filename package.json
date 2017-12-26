@@ -1,0 +1,28 @@
+{
+  "name": "k121",
+  "version": "0.0.1",
+  "description": "Teste Prático - Amigo Secreto",
+  "main": "server/app.js",
+  "keywords": [
+    "nodejs",
+    "k121",
+    "mongoose",
+    "hapi",
+    "angularjs",
+    "mean"
+  ],
+  "author": "Ednilson Amaral <ednilsonamaral.ti@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "hapi": "^17.2.0",
+    "hapi-router": "^4.0.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "mongoose": "^4.13.7",
+    "nodemailer": "^4.4.1",
+    "path": "^0.12.7"
+  }
+}

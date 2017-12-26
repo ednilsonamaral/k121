@@ -1,0 +1,17 @@
+# EditorConfig is awesome: http://EditorConfig.org
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.{js,json,css,html,pug}]
+charset = utf-8
+
+[*.{html,pug}]
+indent_style = tab
+indent_size = 4
+
+[.{js,json,css}]
+indent_style = tab
+indent_size = 2
