@@ -2,7 +2,6 @@
   "name": "k121",
   "version": "0.0.1",
   "description": "Teste Prático - Amigo Secreto",
-  "main": "server/app.js",
   "keywords": [
     "nodejs",
     "k121",
@@ -12,17 +11,25 @@
     "mean"
   ],
   "author": "Ednilson Amaral <ednilsonamaral.ti@gmail.com>",
+  "main": "server/app.js",
+  "scripts": {
+    "dev": "nodemon server/app.js"
+  },
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.26.0",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "hapi": "^17.2.0",
-    "hapi-router": "^4.0.0",
+    "hapi": "^16.1.1",
+    "hapi-router": "^3.5.0",
     "lodash": "^4.17.4",
     "moment": "^2.20.1",
-    "mongoose": "^4.13.7",
+    "mongoose": "^4.10.0",
     "nodemailer": "^4.4.1",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.7"
   }
 }
