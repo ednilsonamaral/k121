@@ -114,9 +114,12 @@ const sendMail = (request, reply) => {
         subject: '[Amigo Secreto - K121] O seu Amigo Secreto é..', // Subject line
         text:
           `
-          Olá ${participante.nome}.
-          Acabamos de sortear o nosso AMIGO SECRETO e o seu é: ${peoplesFounded[participante.amigoSorteadoId].nome}.
-          Compre um presente bem legal e com o valor de no máximo R$ 50,00! Abraços!
+          Olá ${participante.nome}!
+
+          \n\n Acabamos de sortear o nosso AMIGO SECRETO e o seu é: ${peoplesFounded[participante.amigoSorteadoId].nome}.
+          Compre um presente bem legal no valor máximo de R$ 50,00!
+
+          \n\n\n Cheers!
           `
       }, (err, info) => {
         if (err) {
