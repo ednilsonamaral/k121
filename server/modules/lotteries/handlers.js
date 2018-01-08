@@ -21,33 +21,16 @@ const addNewPeople = (request, reply) => {
       let partyData = party
       let numPessoas = partyData.numPessoas
 
-      let query = { $and: [
-        { "partyId": partyId },
-        { "email": new RegExp('^' + request.payload.email + '$', "i") }
-      ]}
+      people.partyId = request.params.id_party
+      people.createdAt = FUNCTIONS.getCurrentDateWithoutTimezone()
 
-      LotteryModel.find(query, (err, data) => {
+      LotteryModel.create(people, (err, _p) => {
         if (err) {
           return FUNCTIONS.objResponse(reply, 200, true, err, 'Erro ao encontrar a sua festa de Amigo Secreto')
         }
 
-        if (data) {
-          if (data.length == 0) {
-            people.partyId = partyId
-            people.createdAt = FUNCTIONS.getCurrentDateWithoutTimezone()
-
-            LotteryModel.create(people, (err, _p) => {
-              if (err) {
-                return FUNCTIONS.objResponse(reply, 200, true, err, 'Erro ao encontrar a sua festa de Amigo Secreto')
-              }
-
-              if (_p) {
-                return FUNCTIONS.objResponse(reply, 201, false, _p, 'Novo participante cadastrado com sucesso!')
-              }
-            })
-          } else {
-            return FUNCTIONS.objResponse(reply, 403, true, data, 'Erro ao cadastrar um novo participante. Pois o mesmo já está cadastrado nesse Amigo Secreto!')
-          }
+        if (_p) {
+          return FUNCTIONS.objResponse(reply, 201, false, _p, 'Novo participante cadastrado com sucesso!')
         }
       })
     }
