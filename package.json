@@ -13,7 +13,10 @@
   "author": "Ednilson Amaral <ednilsonamaral.ti@gmail.com>",
   "main": "server/app.js",
   "scripts": {
-    "dev": "nodemon server/app.js"
+    "devServer": "nodemon server/app.js",
+    "devClient": "live-server client/",
+    "sassWatch": "node-sass client/assets/css/app.scss client/assets/css/app.css --output-style compressed -w",
+    "sassBuild": "node-sass client/assets/css/app.scss client/assets/css/app.css --output-style compressed"
   },
   "license": "ISC",
   "dependencies": {

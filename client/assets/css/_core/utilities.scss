@@ -1,0 +1,15 @@
+// Mixin for clearfix, if necessary
+@mixin clearfix{
+  &:before, &:after{
+  	content: "";
+    display: table;
+  }
+
+	&:after{
+    clear: both;
+  }
+}
+
+.clearfix{
+	@include clearfix;
+}

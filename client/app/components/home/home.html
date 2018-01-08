@@ -1,0 +1,126 @@
+<div ng-controller="HomeCtrl">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<a class="navbar-brand" href="#">{{ app.name }}</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<ol class="breadcrumb">
+					<li><a href="#">Inicio</a></li>
+					<li ng-show="stepOneActive == true">Novo Amigo Secreto</li>
+					<li ng-show="stepTwoActive == true">Adicionar Participante</li>
+					<li ng-show="stepThreeActive == true">Realizar Sorteio</li>
+					<li ng-show="stepFourActive == true">Enviar E-mails</li>
+				</ol>
+			</div>
+		</div>
+
+		<main class="main">
+			<div ng-show="stepStart == true">
+				<h2>{{ welcomeMessage }}</h2>
+				<button type="button" class="btn btn-info" ng-click="start()">Iniciar</button>
+			</div>
+
+			<section class="stepOne" ng-show="stepOneActive == true">
+				<h2>{{ stepOneMessage }}</h2>
+
+				<div ng-show="errors != ''" class="basic-margin-top">
+					<div class="alert alert-danger" role="alert" ng-repeat="error in errors">
+						<strong>Ooops!</strong> {{ error.msg }}
+					</div>
+				</div>
+
+				<div class="basic-margin-top" ng-show="success != ''">
+					<div class="alert alert-success" role="alert">
+						<strong>{{ success }}</strong>
+					</div>
+				</div>
+
+				<form name="form" class="col-lg-6 basic-margin-top">
+					<div class="form-group">
+						<label>Data do Evento</label>
+						<input type="text" class="form-control" ng-model="form.dataEvento" ui-date-mask="DD/MM/YYYY" placeholder="01/01/2018">
+					</div>
+
+					<div class="form-group">
+						<label>Nº de Participantes</label>
+						<input type="text" class="form-control" ng-model="form.numPessoas" placeholder="12">
+					</div>
+
+					<button type="submit" class="btn btn-success" ng-click="finishStepOne()">próximo</button>
+				</form>
+			</section>
+
+			<section class="stepTwo" ng-show="stepTwoActive == true">
+				<h2>{{ stepTwoMessage }}</h2>
+
+				<div ng-show="errors != ''" class="basic-margin-top">
+					<div class="alert alert-danger" role="alert" ng-repeat="error in errors">
+						<strong>Ooops!</strong> {{ error.msg }}
+					</div>
+				</div>
+
+				<div class="basic-margin-top" ng-show="success != ''">
+					<div class="alert alert-success" role="alert">
+						<strong>{{ success }}</strong>
+					</div>
+				</div>
+
+				<div class="panel panel-default basic-margin-top" ng-show="addPessoasStatus == true">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<strong>Adicionando Participante #{{ numPessoa }}</strong>
+						</h3>
+					</div>
+
+					<div class="panel-body">
+						<form name="form" class="col-lg-6">
+							<div class="form-group">
+								<label>Nome</label>
+								<input type="text" class="form-control" ng-model="form.nome" placeholder="Fulano da Silva">
+							</div>
+
+							<div class="form-group">
+								<label>E-mail</label>
+								<input type="email" class="form-control" ng-model="form.email" placeholder="email@email.com">
+							</div>
+
+							<button type="submit" class="btn btn-info" ng-click="addNext(numPessoa)">add próximo participante</button>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<section class="stepThree" ng-show="stepThreeActive == true">
+				<div class="loading basic-margin-top">
+					<p>Agora, estamos realizando o sorteio do Amigo Secreto e <br>enviando os e-mails para cada um dos participantes <br>com os seus respectivos amigos sorteados.</p>
+
+					<img src="assets/img/loading.gif" alt="">
+				</div>
+			</section>
+
+			<section class="stepFour" ng-show="stepFourActive == true">
+				<div class="alert alert-success" role="alert">
+					<h2><strong>Well done!</strong> {{ stepFourMessage }}</h2>
+					<p style="text-align: center;">Prontinho! Boas festas e até a próxima!</p>
+				</div>
+			</section>
+		</main>
+
+		<footer class="row footer">
+			<div class="col-lg-12">
+				<small>
+					&copy; {{ app.company }} - {{ app.name }}
+					<br>Versão {{ app.version }}
+				</small>
+			</div>
+		</footer>
+	</div>
+</div>

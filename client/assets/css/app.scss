@@ -1,0 +1,19 @@
+// All Imports
+
+// Core
+@import "_core/variables";
+@import "_core/colors";
+@import "_core/typography";
+@import "_core/reset";
+@import "_core/utilities";
+
+// Components - Globals
+@import "_components/headings";
+@import "_components/buttons";
+@import "_components/footer";
+@import "_components/internal";
+@import "_components/form";
+@import "_components/loading";
+
+// Pages - Individuals
+@import "../../app/components/home/home";

@@ -1,0 +1,14 @@
+.loading {
+  background-color: $blue-one;
+  padding: 20px 0;
+  border-radius: 4px;
+  text-align: center;
+
+  img {
+    width: 45px;
+  }
+
+  p {
+    color: $main-green;
+  }
+}
